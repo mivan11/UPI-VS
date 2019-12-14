@@ -28,10 +28,10 @@ public class main extends AppCompatActivity {
         int emis = podatak.indexOf("E");
         int vlaz = podatak.indexOf("V");
 
-        String baterij=podatak.substring(bat+7,temp-1);
-        String temperatur =podatak.substring(temp+10, emis-1);
-        String emisij=podatak.substring(emis+6,vlaz-1);
-        String vlaznos =podatak.substring(vlaz+7, vlaz+10);
+        String baterij=podatak.substring(bat+8,temp-1);
+        String temperatur =podatak.substring(temp+11, emis-1);
+        String emisij=podatak.substring(emis+7,vlaz-1);
+        String vlaznos =podatak.substring(vlaz+8, vlaz+10);
 
         tBaterija.setText(baterij);
         tTemperatura.setText(temperatur);
