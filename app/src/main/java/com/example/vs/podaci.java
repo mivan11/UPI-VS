@@ -1,8 +1,8 @@
-package com.example.moje.upi_vs;
+package com.example.vs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class podaci extends AppCompatActivity {

@@ -1,7 +1,7 @@
-package com.example.moje.upi_vs;
+package com.example.vs;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 public class postavke extends AppCompatActivity {
     @Override
