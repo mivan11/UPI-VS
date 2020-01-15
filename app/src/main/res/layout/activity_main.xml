@@ -1,82 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/glavni"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.moje.vs.main"
-    android:background="@drawable/glavna">
-
-    <Button
-        android:text="Postavke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/postavke"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/holo_blue_light"
-        android:textSize="18sp"
-        android:textStyle="normal|bold" />
+    android:background="@color/plava"
+    tools:context=".main">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="111dp"
-        android:id="@+id/baterija" />
+        android:id="@+id/textView"
+        android:layout_width="166dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/b2"
+        android:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/baterija"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="50dp"
-        android:id="@+id/temperatura" />
+        android:id="@+id/textView3"
+        android:layout_width="166dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/b2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/baterija"
-        android:layout_marginStart="11dp"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/emisija" />
+        android:id="@+id/textView2"
+        android:layout_width="168dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/b2"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/emisija"
-        android:layout_alignEnd="@+id/temperatura"
-        android:id="@+id/vlaznost" />
+        android:id="@+id/textView4"
+        android:layout_width="166dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/b2"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:text="Podaci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:background="@android:color/holo_blue_light"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:id="@+id/podaci"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/postavke" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:text="Ovježi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="17dp"
-        android:id="@+id/osvjezi"
-        android:background="@android:color/holo_blue_light" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/ivData"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.741"
+                app:layout_constraintStart_toEndOf="@+id/ivSettings"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/data3" />
 
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/ivSettings"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="224dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/gear" />
+
+            <TextView
+                android:id="@+id/tvBatNaslov"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="412dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBatVal"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="456dp"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCO2naslov"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="412dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toEndOf="@+id/tvBatNaslov"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCO2Val"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="456dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toEndOf="@+id/tvBatVal"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTempNaslov"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="70dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBatNaslov" />
+
+            <TextView
+                android:id="@+id/tvTempVal"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="73dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBatVal" />
+
+            <TextView
+                android:id="@+id/tvVlaznostNaslov"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toEndOf="@+id/tvTempNaslov"
+                app:layout_constraintTop_toBottomOf="@+id/tvCO2naslov" />
+
+            <TextView
+                android:id="@+id/tvVlazVal"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="73dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:textColor="@color/crna"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toEndOf="@+id/tvTempVal"
+                app:layout_constraintTop_toBottomOf="@+id/tvCO2Val" />
+
+            <TextView
+                android:id="@+id/tvNaslov"
+                android:layout_width="271dp"
+                android:layout_height="144dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="144dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="monospace"
+                android:shadowColor="@color/plava"
+                android:text="Vremenska Stanica"
+                android:textColor="@color/crna"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivSlika"
+                android:layout_width="195dp"
+                android:layout_height="191dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="212dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/sun17" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</android.support.constraint.ConstraintLayout>
