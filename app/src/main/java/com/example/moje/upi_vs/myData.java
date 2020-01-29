@@ -16,8 +16,8 @@ public class myData {
         this.Battery = Battery;
     }
 
-    public Integer getTemperature() {
-        return Integer.parseInt(Temperature);
+    public String getTemperature() {
+        return (Temperature);
     }
     public void setTemperature(String Temperature) {
         this.Temperature = Temperature;

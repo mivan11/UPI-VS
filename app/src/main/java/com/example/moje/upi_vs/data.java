@@ -51,7 +51,8 @@ public class data extends AppCompatActivity {
                     Month = String.valueOf(dayOfMonth);
                 }
                 date = Day + "-" + Month + "-" + Year;
-
+                TextView tv2 = new TextView(data.this);
+                //pomocna.getdata(date , llscroll,tvtemp,tv2);
                 getdata(date);
             }
         });
@@ -80,10 +81,7 @@ public class data extends AppCompatActivity {
                         tv1.setTextSize(16);
                         tv1.setTextColor(Color.parseColor("#0959e1"));
                         llscroll.addView(tv1);
-
-
                     }
-
                 } else {
                     tvtemp.setTextColor(Color.parseColor("#a8202b"));
                     tvtemp.setText("No data");

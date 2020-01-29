@@ -23,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 
 public class main extends AppCompatActivity {
     Button postavke, podaci;
@@ -92,8 +91,11 @@ public class main extends AppCompatActivity {
         ivSettings = (ImageView) findViewById(R.id.ivSettings);
         ivData = (ImageView) findViewById(R.id.ivData);
 
-        Random rnd= new Random();
-        int tempo=rnd.nextInt(101);
+        //Random rnd= new Random();
+        //int tempo=rnd.nextInt(101);
+
+        data=pomocna.generiraj();
+        int tempo=Integer.parseInt(data.getTemperature());
         if(Unit.equals("Kelvin")){
             tempo+=274;
         }
@@ -104,14 +106,15 @@ public class main extends AppCompatActivity {
             set_pic(tempo);
         }
 
-        data= new myData(baterij,String.valueOf(tempo)+Unit,emisij,vlaznos);
+        //data= new myData(baterij,String.valueOf(tempo)+Unit,emisij,vlaznos);
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Mjerenja");
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.hasChild(currentDate)){
-                    set_data(currentDate,data);
+                    pomocna.set_data(currentDate,data,tvCO2Val,tvBatVal,tvTempVal,tvVlazVal);
+                    //set_data(currentDate,data);
                 }
             }
             @Override
@@ -123,8 +126,10 @@ public class main extends AppCompatActivity {
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Random rnd= new Random();
-                int tempo=rnd.nextInt(101);
+                //Random rnd= new Random();
+                //
+                data=pomocna.generiraj();
+                int tempo=Integer.parseInt(data.getTemperature());
                 if(Unit.equals("Kelvin")){
                     tempo+=274;
                 }
@@ -167,9 +172,9 @@ public class main extends AppCompatActivity {
     }
 
     private void set_pic(int temp) {
-        if (temp < 30) {
+        if (temp < 12) {
             ivSlika.setImageResource(R.drawable.rain);
-        } else if (temp >= 30 & temp < 60) {
+        } else if (temp >= 12 & temp < 24) {
             ivSlika.setImageResource(R.drawable.partlycloudy);
 
         } else {
